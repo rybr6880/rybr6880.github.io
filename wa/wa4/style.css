@@ -11,13 +11,31 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  position: relative;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: url("assets/jet-background.png") center center / cover no-repeat;
+  opacity: 0.15;
+  z-index: -1;
+  pointer-events: none;
+}
+
+header {
+  padding: 2rem 1rem 1.5rem;
+  background-color: #ffffff;
+  border-bottom: 3px solid #1e40af;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.08);
 }
 
 main {
   width: 100%;
   max-width: 960px;
-  margin: 2rem auto;
-  padding: 1.5rem;
+  margin: 2.5rem auto 2rem;
+  padding: 2rem 1.5rem;
   box-sizing: border-box;
   background-color: #ffffff;
   border-radius: 12px;
@@ -36,6 +54,8 @@ h1 {
   font-size: 2rem;
   text-align: center;
   letter-spacing: 0.04em;
+  color: #1e40af;
+  margin-bottom: 0;
 }
 
 h2 {
@@ -89,15 +109,31 @@ nav a:hover {
   color: #1d4ed8;
 }
 
+nav a.current {
+  background-color: #1e40af;
+  border-color: #1e40af;
+  color: #ffffff;
+}
+
+nav a.current:hover {
+  background-color: #1d4ed8;
+  border-color: #1d4ed8;
+  color: #ffffff;
+}
+
 section {
-  padding: 1.25rem 1rem;
+  padding: 1.25rem 1rem 1.25rem 1.5rem;
   margin-bottom: 1.25rem;
   border-radius: 10px;
   border: 1px solid #e5e7eb;
+  border-left-width: 3px;
+  border-left-color: #93c5fd;
 }
 
 section + section {
   margin-top: 1.5rem;
+  border-left-color: #e5e7eb;
+  border-left-width: 1px;
 }
 
 ul {
@@ -164,13 +200,17 @@ footer a:hover {
 }
 
 @media (max-width: 640px) {
+  header {
+    padding: 1.5rem 0.75rem 1rem;
+  }
+
   main {
-    margin: 1.25rem auto;
-    padding: 1.1rem;
+    margin: 1.5rem auto 1.25rem;
+    padding: 1.25rem 1rem;
   }
 
   section {
-    padding: 1rem 0.8rem;
+    padding: 1rem 0.8rem 1rem 1.1rem;
   }
 
   nav {
