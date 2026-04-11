@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Unreal Summer World</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.5.x/dist/aframe-environment-component.min.js"></script>
+  </head>
+  <body>
+    <a-scene>
+      <a-sky src="download.jpg"></a-sky>
+
+      <a-plane
+        position="0 0 0"
+        rotation="-90 0 0"
+        width="500"
+        height="500"
+        color="#c2a96b"
+        roughness="1"
+      >
+      </a-plane>
+
+      <a-cone
+        position="-2 0.6 -4"
+        radius-bottom="0.3"
+        radius-top="0"
+        height="1.0"
+        color="#c8894a"
+        rotation="180 0 0"
+      ></a-cone>
+      <a-sphere position="-2 1.35 -4" radius="0.35" color="#f48fb1"></a-sphere>
+
+      <a-box
+        position="0 0.4 -4"
+        width="0.9"
+        depth="0.9"
+        height="0.8"
+        color="#d4b483"
+      ></a-box>
+      <a-cone
+        position="0 1.1 -4"
+        radius-bottom="0.55"
+        radius-top="0"
+        height="0.6"
+        color="#c9a96e"
+        segments-radial="4"
+      ></a-cone>
+      <a-box
+        position="-0.8 0.25 -4"
+        width="0.5"
+        depth="0.5"
+        height="0.5"
+        color="#d4b483"
+      ></a-box>
+      <a-box
+        position="0.8 0.25 -4"
+        width="0.5"
+        depth="0.5"
+        height="0.5"
+        color="#d4b483"
+      ></a-box>
+    </a-scene>
+  </body>
+</html>
+
+<!--
+  For Project 3, I plan to make a "World of my own Imagination" in VR about
+  fighter jets
+-->
