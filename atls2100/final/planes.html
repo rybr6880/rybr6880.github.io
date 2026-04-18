@@ -1,0 +1,129 @@
+<!doctype html>
+<html>
+  <head>
+    <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-animation-component@^5.0.0/dist/aframe-animation-component.min.js"></script>
+  </head>
+
+  <body>
+    <a-scene>
+      <a-sky src="./3d-models/airport360.jpg"> </a-sky>
+      <a-gltf-model
+        src="./3d-models/floatplane.glb"
+        position="-12 2 -3"
+        scale="0.05 0.05 0.05"
+      >
+      </a-gltf-model>
+
+      <a-gltf-model
+        src="./3d-models/floatplane.glb"
+        position="0 10 -3"
+        scale="0.05 0.05 0.05"
+      >
+      </a-gltf-model>
+
+      <a-gltf-model
+        src="./3d-models/floatplane.glb"
+        position="12 2 -3"
+        scale="0.05 0.05 0.05"
+      >
+      </a-gltf-model>
+
+      <a-entity id="runway" position="0 0 -6">
+        <a-plane
+          position="0 0.02 0"
+          rotation="-90 0 0"
+          width="16"
+          height="72"
+          material="color: #3d4349; roughness: 0.95; metalness: 0.05"
+        ></a-plane>
+
+        <a-box
+          position="0 0.04 -30"
+          width="0.35"
+          height="0.02"
+          depth="3.5"
+          material="color: #f2f2f2"
+        ></a-box>
+        <a-box
+          position="0 0.04 -22"
+          width="0.35"
+          height="0.02"
+          depth="3.5"
+          material="color: #f2f2f2"
+        ></a-box>
+        <a-box
+          position="0 0.04 -14"
+          width="0.35"
+          height="0.02"
+          depth="3.5"
+          material="color: #f2f2f2"
+        ></a-box>
+        <a-box
+          position="0 0.04 -6"
+          width="0.35"
+          height="0.02"
+          depth="3.5"
+          material="color: #f2f2f2"
+        ></a-box>
+        <a-box
+          position="0 0.04 2"
+          width="0.35"
+          height="0.02"
+          depth="3.5"
+          material="color: #f2f2f2"
+        ></a-box>
+        <a-box
+          position="0 0.04 10"
+          width="0.35"
+          height="0.02"
+          depth="3.5"
+          material="color: #f2f2f2"
+        ></a-box>
+        <a-box
+          position="0 0.04 18"
+          width="0.35"
+          height="0.02"
+          depth="3.5"
+          material="color: #f2f2f2"
+        ></a-box>
+        <a-box
+          position="0 0.04 26"
+          width="0.35"
+          height="0.02"
+          depth="3.5"
+          material="color: #f2f2f2"
+        ></a-box>
+      </a-entity>
+
+      <a-entity
+        position="12 22 -3"
+        animation="property: rotation; from: 0 0 0; to: 0 0 360; loop: true; dur: 14000; easing: linear"
+      >
+        <a-gltf-model
+          src="./3d-models/PLANE.glb"
+          position="0 0 0"
+          scale="15 15 15"
+        >
+        </a-gltf-model>
+      </a-entity>
+      <a-entity
+        position="-12 22 -3"
+        animation="property: rotation; from: 0 0 0; to: 0 0 -360; loop: true; dur: 14000; easing: linear"
+      >
+        <a-gltf-model
+          src="./3d-models/PLANE.glb"
+          position="0 0 0"
+          scale="15 15 15"
+        >
+        </a-gltf-model>
+      </a-entity>
+      <a-entity position="0 1.6 0">
+        <a-camera></a-camera>
+      </a-entity>
+
+      <a-light type="directional" position="1 1 0"></a-light>
+      <a-light type="ambient" intensity="0.5"></a-light>
+    </a-scene>
+  </body>
+</html>
