@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Worst Volume Control Design</title>
+  </head>
+
+  <body>
+    <main>
+      <h2>Volume Control</h2>
+      <div>
+        <div>
+          <strong>Status:</strong>
+          <span id="status">Idle.</span>
+        </div>
+        <div>
+          <strong>Round:</strong>
+          <span id="round">0</span>
+        </div>
+        <div>
+          <strong>Countdown:</strong>
+          <span id="countdown">-</span>
+        </div>
+        <div>
+          <strong>Banked volume (0–100):</strong>
+          <span id="bankedVolume">0</span>
+        </div>
+        <div>
+          <strong>Applied/output volume (0–100):</strong>
+          <span id="appliedVolume">0</span>
+        </div>
+      </div>
+
+      <hr />
+
+      <div>
+        <button id="btnStart">Start game</button>
+        <button id="btnRestart" disabled>Restart</button>
+        <button id="btnBank" disabled>Apply volume</button>
+        <button id="btnContinue" disabled>Risk it</button>
+      </div>
+
+      <hr />
+
+      <div>
+        <div><strong>Click the colors:</strong></div>
+        <div>
+          <button id="color-red" data-color="red">red</button>
+          <button id="color-green" data-color="green">green</button>
+          <button id="color-blue" data-color="blue">blue</button>
+          <button id="color-yellow" data-color="yellow">yellow</button>
+        </div>
+      </div>
+
+      <hr />
+
+      <div>
+        <div><strong>Audio:</strong></div>
+        <p>Volume is just a number for now</p>
+      </div>
+    </main>
+
+    <script src="./index.js"></script>
+  </body>
+</html>
