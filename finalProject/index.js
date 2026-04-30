@@ -3,11 +3,14 @@ var roundTxt = document.getElementById("round");
 var timeLeftTxt = document.getElementById("countdown");
 var volumePointsTxt = document.getElementById("bankedVolume");
 var realVolumeTxt = document.getElementById("appliedVolume");
+var volumeSlider = document.getElementById("volumeSlider");
 
 var startBtn = document.getElementById("btnStart");
 var restartBtn = document.getElementById("btnRestart");
 var bankBtn = document.getElementById("btnBank");
 var riskBtn = document.getElementById("btnContinue");
+var btnOutputQuieter = document.getElementById("btnOutputQuieter");
+var btnOutputMute = document.getElementById("btnOutputMute");
 
 var redBtn = document.getElementById("color-red");
 var greenBtn = document.getElementById("color-green");
@@ -54,6 +57,8 @@ function setApplied(n) {
   if (n > 100) n = 100;
   actualVolume = n;
   realVolumeTxt.textContent = String(actualVolume);
+  volumeSlider.value = String(actualVolume);
+  volumeSlider.setAttribute("aria-valuenow", String(actualVolume));
 }
 
 function enableColors(on) {
@@ -184,7 +189,11 @@ function success() {
   if (bonus < 0) bonus = 0;
 
   setBanked(volumePoints + bonus);
-  setStatus("Correct. +" + bonus + ". Bank or risk?");
+  setStatus(
+    "Correct. +" +
+      bonus +
+      " to run score. Commit to output (ends run) or risk next round?",
+  );
   enableChoices(true);
 }
 
@@ -208,15 +217,27 @@ function bankNow() {
   enableChoices(false);
   enableColors(false);
   stopTimer();
-  setStatus("Banked. Applied volume is " + actualVolume + ".");
+  setStatus(
+    "Output volume is now " +
+      actualVolume +
+      " (from your run score). This run is over. Restart to play again. You can still lower output below.",
+  );
 }
 
 function riskNow() {
   enableChoices(false);
-  setStatus("Risk accepted...");
+  setStatus("Risking next round…");
   setTimeout(function () {
     startRound();
   }, 200);
+}
+
+function quieterOutput() {
+  setApplied(actualVolume - 10);
+}
+
+function muteOutput() {
+  setApplied(0);
 }
 
 function startFresh() {
@@ -242,6 +263,9 @@ restartBtn.addEventListener("click", restart);
 bankBtn.addEventListener("click", bankNow);
 riskBtn.addEventListener("click", riskNow);
 
+btnOutputQuieter.addEventListener("click", quieterOutput);
+btnOutputMute.addEventListener("click", muteOutput);
+
 redBtn.addEventListener("click", function () {
   clickColor("red");
 });
@@ -261,4 +285,4 @@ enableChoices(false);
 setCountdown(-1);
 setBanked(0);
 setApplied(0);
-setStatus("Start the game.");
+setStatus("Idle. Start the game.");

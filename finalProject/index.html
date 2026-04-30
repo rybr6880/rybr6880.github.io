@@ -4,12 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Worst Volume Control Design</title>
+    <link rel="stylesheet" href="style.css" />
   </head>
 
   <body>
     <main>
       <h2>Volume Control</h2>
-      <div>
+
+      <div class="stats">
         <div>
           <strong>Status:</strong>
           <span id="status">Idle.</span>
@@ -23,11 +25,11 @@
           <span id="countdown">-</span>
         </div>
         <div>
-          <strong>Banked volume (0–100):</strong>
+          <strong>Run score (0–100):</strong>
           <span id="bankedVolume">0</span>
         </div>
         <div>
-          <strong>Applied/output volume (0–100):</strong>
+          <strong>Output volume (0–100):</strong>
           <span id="appliedVolume">0</span>
         </div>
       </div>
@@ -37,8 +39,8 @@
       <div>
         <button id="btnStart">Start game</button>
         <button id="btnRestart" disabled>Restart</button>
-        <button id="btnBank" disabled>Apply volume</button>
-        <button id="btnContinue" disabled>Risk it</button>
+        <button id="btnBank" disabled>Commit to output</button>
+        <button id="btnContinue" disabled>Risk next round</button>
       </div>
 
       <hr />
@@ -56,8 +58,40 @@
       <hr />
 
       <div>
-        <div><strong>Audio:</strong></div>
-        <p>Volume is just a number for now</p>
+        <div><strong>Output</strong></div>
+        <p class="output-hint">
+          Slider shows level after you commit, use the buttons to turn it down
+          anytime.
+        </p>
+        <div class="volume-row">
+          <label for="volumeSlider">Output volume (display)</label>
+          <input
+            type="range"
+            id="volumeSlider"
+            min="0"
+            max="100"
+            value="0"
+            step="1"
+            disabled
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+            aria-disabled="true"
+            aria-label="Output volume 0 to 100; matches the number above when you commit, or when you use Quieter or Mute"
+          />
+        </div>
+        <div class="output-controls">
+          <button
+            type="button"
+            id="btnOutputQuieter"
+            class="output-controls-btn"
+          >
+            Quieter (−10)
+          </button>
+          <button type="button" id="btnOutputMute" class="output-controls-btn">
+            Mute output
+          </button>
+        </div>
       </div>
     </main>
 
